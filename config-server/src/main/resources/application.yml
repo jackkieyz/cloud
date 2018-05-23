@@ -1,0 +1,21 @@
+server:
+  port: 2001
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jackkieyz/cloud-config
+          search-paths: '{application}'
+          force-pull: true
+        encrypt:
+          enabled: true
+      discovery:
+        enabled: true
+        service-id: config-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
